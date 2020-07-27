@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
         start = findViewById(R.id.startbtn);
+
+        start.setEnabled(true);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                start.setEnabled(false);
                 if (hrs.getText().toString().isEmpty() && min.getText().toString().isEmpty() && !sec.getText().toString().isEmpty()) {
                     SecondInMilliseconds = Integer.parseInt(sec.getText().toString()) * 1000;
                     hrs.setText("0");
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onFinish() {
                         done.setText("TIME's UP...!!!");
                         m1.start();
+                        start.setEnabled(true);
                     }
                 }.start();
                 HoursInMilliseconds = 0;
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         hrs.clearFocus();
         min.clearFocus();
         sec.clearFocus();
+
     }
 }
 
